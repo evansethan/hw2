@@ -10,3 +10,49 @@ add up the squares and then take the square root. (That this is the distance
 from the origin is the famous Pythagorean theorem, which works in any number
 of dimensions).
 */
+
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <format>
+#include <iterator>     // std::ostream_iterator
+#include <numeric>
+#include <cmath>
+using namespace std;
+
+
+vector<double> squareTransform(const vector<double>&v1) {
+
+    vector<double> v2(v1.size());
+
+    transform(v1.begin(), v1.end(), v2.begin(),
+              [](double a) {return a * a;});
+
+    return v2;
+}
+
+
+double pythagoras(const vector<double>&v1) {
+
+    vector<double> v2 = squareTransform(v1);
+
+    double sum = std::accumulate(
+        v2.begin(),   // Arg 1: Iterator to the beginning of the range
+        v2.end(),     // Arg 2: Iterator to the end of the range
+        0                  // Arg 3: Initial value and type for the accumulation
+    );
+
+    return sqrt(sum);
+}
+
+
+int main(){
+
+    vector<double> v1 = {1.23, 4.56, 7.89, 10.11};
+
+    cout << pythagoras(v1) << endl;
+
+    return 0;
+
+}
