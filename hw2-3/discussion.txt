@@ -1,0 +1,11 @@
+## Why the Class-Oriented Approach is Better
+
+The changes I made to `pascal.cpp` make the code more object-oriented. This is an improvement for several reasons:
+
+1.  **Encapsulation:** The triangle's data (the `vector` of `vector`s) and the operations on that data (generating and printing the triangle) are now bundled together in the `Triangle` class. The data is marked `private`, which means it can only be accessed by the class's own methods. This prevents other parts of the code from accidentally or intentionally putting the `Triangle` object into an invalid state, making the program more robust.
+
+2.  **Abstraction and Readability:** The `main` function is now much simpler and easier to read. It clearly shows the program's main purpose: get a number of rows, create a triangle, and print it. All the low-level details of how the triangle is generated and formatted for printing are hidden away (abstracted) inside the `Triangle` class. This makes the code easier to understand and maintain.
+
+3.  **Reusability:** The `Triangle` class is a self-contained unit. If you needed to use a Pascal's triangle in another program or another part of the same program, you could now easily reuse the `Triangle` class without needing to copy and paste the generation and printing logic.
+
+In short, the new version separates the *what* (creating and printing a triangle in `main`) from the *how* (the implementation details within the `Triangle` class), which is a fundamental principle of good software design.
