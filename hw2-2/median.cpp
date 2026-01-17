@@ -16,3 +16,72 @@ looking at the template function for squaring from last week’s slides
 ⚫ More extra credit. If there are an even number of elements, use the
 average of the middle 2 element
 */
+
+#include <algorithm>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+
+double median1(vector<double> v) {
+
+    sort(v.begin(), v.end());
+    return v[(v.size()/2)];
+}
+
+double median2(vector<double> v) {
+
+    int mid = v.size()/2;
+    partial_sort(v.begin(), v.begin() + mid + 1, v.end());
+    return v[mid];
+}
+
+double median3(vector<double> v) {
+
+    int mid = v.size()/2;
+    nth_element(v.begin(), v.begin() + mid, v.end());
+    return v[mid];
+}
+
+auto median4(vector<auto> v) {
+    int mid = v.size()/2;
+    nth_element(v.begin(), v.begin() + mid, v.end());
+    return v[mid];
+}
+
+// template<typename T>
+// T median4(vector<T> v) {
+//     int mid = v.size()/2;
+//     nth_element(v.begin(), v.begin() + mid, v.end());
+//     return v[mid];
+// }
+
+double median5(vector<auto> v) {
+    int n = v.size();
+    int mid = n/2;
+
+    if (n % 2 != 0) {
+        nth_element(v.begin(), v.begin() + mid, v.end());
+        return v[mid];
+    } else {
+        nth_element(v.begin(), v.begin() + mid - 1, v.end());
+        nth_element(v.begin(), v.begin() + mid, v.end());
+        return double(v[mid] + v[mid - 1]) / 2;
+    }
+}
+
+int main(){
+    vector<double> v1 = {1.23, 7.89, 10.11, 4.56, 2.53, 8.88, 10.44};
+    vector<double> v2 = {1.23, 7.89, 10.11, 4.56, 2.53, 8.88, 10.44};
+    vector<double> v3 = {1.23, 7.89, 10.11, 4.56, 2.53, 8.88, 10.44};
+    vector<int> v4 = {1, 7, 10, 4, 2, 8, 10};
+    vector<int> v5 = {1, 7, 10, 4, 2, 8, 10, 6};
+    vector<double> v6 = {1.23, 7.89, 10.11, 4.56, 2.53, 8.88, 10.44, 8.45};
+    cout << median1(v1) << endl;
+    cout << median2(v2) << endl;
+    cout << median3(v3) << endl;
+    cout << median4(v4) << endl;
+    cout << median5(v5) << endl;
+    cout << median5(v6) << endl;
+    return 0;
+}

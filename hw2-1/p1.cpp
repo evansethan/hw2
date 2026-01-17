@@ -15,7 +15,7 @@ extra comma at the end of the output. Don’t worry if that happens).
 #include <string>
 #include <vector>
 #include <format>
-#include <iterator>     // std::ostream_iterator
+#include <iterator>
 using namespace std;
 
 
