@@ -33,16 +33,10 @@ vector<double> squareTransform(const vector<double>&v1) {
 }
 
 
-double pythagoras(const vector<double>&v1) {
+double distance(const vector<double>&v1) {
 
     vector<double> v2 = squareTransform(v1);
-
-    double sum = std::accumulate(
-        v2.begin(),   // Arg 1: Iterator to the beginning of the range
-        v2.end(),     // Arg 2: Iterator to the end of the range
-        0                  // Arg 3: Initial value and type for the accumulation
-    );
-
+    double sum = std::accumulate(v2.begin(), v2.end(), 0.0);
     return sqrt(sum);
 }
 
@@ -51,7 +45,7 @@ int main(){
 
     vector<double> v1 = {1.23, 4.56, 7.89, 10.11};
 
-    cout << pythagoras(v1) << endl;
+    cout << distance(v1) << endl;
 
     return 0;
 
