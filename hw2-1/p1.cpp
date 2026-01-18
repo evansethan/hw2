@@ -13,14 +13,13 @@ extra comma at the end of the output. Don’t worry if that happens).
 #include <algorithm>
 #include <iostream>
 #include <vector>
-using namespace std;
 
 
-vector<double> squareTransform(const vector<double>&v1) {
+std::vector<double> squareTransform(const std::vector<double>&v1) {
 
-    vector<double> v2(v1.size());
+    std::vector<double> v2(v1.size());
 
-    transform(v1.begin(), v1.end(), v2.begin(),
+    std::transform(v1.begin(), v1.end(), v2.begin(),
               [](double a) {return a * a;});
 
     return v2;
@@ -29,13 +28,13 @@ vector<double> squareTransform(const vector<double>&v1) {
 
 int main(){
 
-    vector<double> v1 = {1.01, 2.01, 3.01, 4.01};
+    std::vector<double> v1 = {1.01, 2.01, 3.01, 4.01};
 
-    vector<double> v2 = squareTransform(v1);
+    std::vector<double> v2 = squareTransform(v1);
 
     for (double element : v2) {
-        cout << element << " ";
+        std::cout << element << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }

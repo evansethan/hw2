@@ -8,22 +8,18 @@ better way to accomplish part 2
 
 #include <algorithm>
 #include <iostream>
-#include <string>
 #include <vector>
-#include <format>
-#include <iterator>
 #include <numeric>
 #include <cmath>
-using namespace std;
 
-double distance(const vector<double>&v) {
+double distance(const std::vector<double>&v) {
     double sum = std::inner_product(v.begin(), v.end(), v.begin(), 0.0);
-    return sqrt(sum);
+    return std::sqrt(sum);
 }
 
 
 int main(){
-    vector<double> v = {1.23, 4.56, 7.89, 10.11};
-    cout << distance(v) << endl;
+    std::vector<double> v = {1.23, 4.56, 7.89, 10.11};
+    std::cout << distance(v) << std::endl;
     return 0;
 }

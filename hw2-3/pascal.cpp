@@ -7,12 +7,11 @@
 #include <string>
 #include <vector>
 #include <format>
-using namespace std;
 
 
 class Triangle {
 private:
-    vector<vector<int>> tri;
+    std::vector<std::vector<int>> tri;
     int const brickSize = 4;
     int const maxRows = 13;
     int rows;
@@ -25,7 +24,7 @@ public:
         }
 
         for (int i = 0; i < this->rows; i++) {
-            vector<int> row;
+            std::vector<int> row;
 
             for (int j = 0; j < i + 1; j++) {
 
@@ -39,11 +38,11 @@ public:
     }
     void printTriangle() {
         for(int i = 0; i < this->rows; i++) {
-            string row;
+            std::string row;
             for(int j = 0; j <= i; j++) {
-                row += format("{:^{}}", this->tri[i][j], this->brickSize);    
+                row += std::format("{:^{}}", this->tri[i][j], this->brickSize);    
             }
-            cout << format("{:^{}}", row, this->rows * this->brickSize) << endl;
+            std::cout << std::format("{:^{}}", row, this->rows * this->brickSize) << std::endl;
         }
     }
 };
@@ -52,8 +51,8 @@ public:
 int main() {
 
     int rows;
-    cout << "How many rows? ";
-    cin >> rows;
+    std::cout << "How many rows? ";
+    std::cin >> rows;
 
     Triangle triangle(rows);
     triangle.printTriangle();

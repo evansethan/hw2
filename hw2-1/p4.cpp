@@ -12,18 +12,17 @@ this problem
 #include <vector>
 #include <numeric>
 #include <cmath>
-using namespace std;
 
-double distance(const vector<double>&v) {
-    double sum = accumulate(v.begin(), v.end(), 0.0, [](double acc, double i) {
+double distance(const std::vector<double>&v) {
+    double sum = std::accumulate(v.begin(), v.end(), 0.0, [](double acc, double i) {
         return acc + (i * i);
     });
-    return sqrt(sum);
+    return std::sqrt(sum);
 }
 
 
 int main(){
-    vector<double> v = {1.23, 4.56, 7.89, 10.11};
-    cout << distance(v) << endl;
+    std::vector<double> v = {1.23, 4.56, 7.89, 10.11};
+    std::cout << distance(v) << std::endl;
     return 0;
 }

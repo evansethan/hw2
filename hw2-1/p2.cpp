@@ -16,33 +16,32 @@ of dimensions).
 #include <vector>
 #include <numeric>
 #include <cmath>
-using namespace std;
 
 
-vector<double> squareTransform(const vector<double>&v1) {
+std::vector<double> squareTransform(const std::vector<double>&v1) {
 
-    vector<double> v2(v1.size());
+    std::vector<double> v2(v1.size());
 
-    transform(v1.begin(), v1.end(), v2.begin(),
+    std::transform(v1.begin(), v1.end(), v2.begin(),
               [](double a) {return a * a;});
 
     return v2;
 }
 
 
-double distance(const vector<double>&v1) {
+double distance(const std::vector<double>&v1) {
 
-    vector<double> v2 = squareTransform(v1);
+    std::vector<double> v2 = squareTransform(v1);
     double sum = std::accumulate(v2.begin(), v2.end(), 0.0);
-    return sqrt(sum);
+    return std::sqrt(sum);
 }
 
 
 int main(){
 
-    vector<double> v1 = {1.23, 4.56, 7.89, 10.11};
+    std::vector<double> v1 = {1.23, 4.56, 7.89, 10.11};
 
-    cout << distance(v1) << endl;
+    std::cout << distance(v1) << std::endl;
 
     return 0;
 
