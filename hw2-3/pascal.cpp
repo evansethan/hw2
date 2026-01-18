@@ -13,11 +13,16 @@ using namespace std;
 class Triangle {
 private:
     vector<vector<int>> tri;
-    int brickSize = 4;
+    int const brickSize = 4;
+    int const maxRows = 13;
     int rows;
 public:
     Triangle(int numRows) {
-        this->rows = numRows;
+        if (numRows > this->maxRows) {
+            this->rows = this->maxRows;
+        } else {
+            this->rows = numRows;
+        }
 
         for (int i = 0; i < this->rows; i++) {
             vector<int> row;
