@@ -13,10 +13,7 @@ of dimensions).
 
 #include <algorithm>
 #include <iostream>
-#include <string>
 #include <vector>
-#include <format>
-#include <iterator>     // std::ostream_iterator
 #include <numeric>
 #include <cmath>
 using namespace std;

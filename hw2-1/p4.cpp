@@ -9,10 +9,7 @@ this problem
 
 #include <algorithm>
 #include <iostream>
-#include <string>
 #include <vector>
-#include <format>
-#include <iterator>
 #include <numeric>
 #include <cmath>
 using namespace std;

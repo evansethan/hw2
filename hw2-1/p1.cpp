@@ -12,10 +12,7 @@ extra comma at the end of the output. Don’t worry if that happens).
 
 #include <algorithm>
 #include <iostream>
-#include <string>
 #include <vector>
-#include <format>
-#include <iterator>
 using namespace std;
 
 
@@ -32,18 +29,13 @@ vector<double> squareTransform(const vector<double>&v1) {
 
 int main(){
 
-    vector<double> v1 = {1.23, 4.56, 7.89, 10.11};
+    vector<double> v1 = {1.01, 2.01, 3.01, 4.01};
 
     vector<double> v2 = squareTransform(v1);
 
-
-    // for (double element : v2) {
-    //     cout << element << " ";
-    // }
-    // cout << endl;
-    std::ostream_iterator<double> out_it (std::cout,", ");
-    std::copy ( v2.begin(), v2.end(), out_it );
-    std::cout << std::endl;
+    for (double element : v2) {
+        cout << element << " ";
+    }
+    cout << endl;
     return 0;
-
 }
